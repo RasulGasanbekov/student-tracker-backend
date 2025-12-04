@@ -24,7 +24,6 @@ public class User {
     @Column(nullable = false)
     private String name;
 
-    private String semester;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<UserScore> scores = new ArrayList<>();

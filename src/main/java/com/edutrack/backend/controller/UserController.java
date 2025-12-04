@@ -25,7 +25,6 @@ public class UserController {
         userDto.setId(user.getId());
         userDto.setName(user.getName());
         userDto.setEmail(user.getEmail());
-        userDto.setSemester(user.getSemester());
         return ResponseEntity.ok(userDto);
     }
 }
