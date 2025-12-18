@@ -13,7 +13,7 @@ public class ProgressDto {
     public static class Summary {
         private Integer totalScore;
         private Integer totalMaxScore;
-        private Double overallProgress;
+        private Integer overallProgress;
     }
 
     @Data

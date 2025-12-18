@@ -22,7 +22,7 @@ public class ProgressService {
         // Рассчитываем общую статистику
         int totalScore = userScores.stream().mapToInt(UserScore::getScore).sum();
         int totalMaxScore = userScores.stream().mapToInt(us -> us.getComponent().getMaxScore()).sum();
-        double overallProgress = totalMaxScore > 0 ? (double) totalScore / totalMaxScore * 100 : 0;
+        int overallProgress = totalMaxScore > 0 ? totalScore / totalMaxScore * 100 : 0;
 
         // Группируем по предметам
         Map<String, List<UserScore>> scoresBySubject = userScores.stream()
@@ -59,7 +59,7 @@ public class ProgressService {
         ProgressDto.Summary summary = new ProgressDto.Summary();
         summary.setTotalScore(totalScore);
         summary.setTotalMaxScore(totalMaxScore);
-        summary.setOverallProgress(Math.round(overallProgress * 100.0) / 100.0); // Округление до 2 знаков
+        summary.setOverallProgress(overallProgress);
 
         ProgressDto progressDto = new ProgressDto();
         progressDto.setSummary(summary);
